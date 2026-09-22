@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Leaflet Container sozlamalari */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background-color: #0f172a !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* Maxsus Marker Stili: Sariq (1 ta hodisa - Kam xavfli) */
+.marker-pin-low {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.marker-pin-low .core-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #f59e0b;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
+  z-index: 2;
+}
+.marker-pin-low .pulse-ring {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(245, 158, 11, 0.35);
+  border-radius: 50%;
+  animation: pulse-ring-anim 2s infinite ease-out;
+  z-index: 1;
+}
+
+/* Maxsus Marker Stili: To'q sariq (2-4 ta hodisa - O'rta xavfli) */
+.marker-pin-medium {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.marker-pin-medium .core-dot {
+  width: 18px;
+  height: 18px;
+  background-color: #ea580c;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(234, 88, 12, 0.9);
+  z-index: 2;
+}
+.marker-pin-medium .pulse-ring {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(234, 88, 12, 0.45);
+  border-radius: 50%;
+  animation: pulse-ring-anim 1.6s infinite ease-out;
+  z-index: 1;
+}
+.marker-pin-medium .badge-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #c2410c;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 1px 5px;
+  border: 1px solid #fff;
+  z-index: 3;
+}
+
+/* Maxsus Marker Stili: Qizil (5+ ta hodisa - O'TA XAVFLI) */
+.marker-pin-high {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.marker-pin-high .core-dot {
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle, #ef4444 0%, #b91c1c 100%);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 1);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.marker-pin-high .pulse-ring {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  background-color: rgba(239, 68, 68, 0.5);
+  border-radius: 50%;
+  animation: pulse-ring-anim 1.2s infinite ease-out;
+  z-index: 1;
+}
+.marker-pin-high .pulse-ring-2 {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(239, 68, 68, 0.25);
+  border-radius: 50%;
+  animation: pulse-ring-anim 1.2s infinite ease-out 0.4s;
+  z-index: 0;
+}
+.marker-pin-high .badge-count {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  background: #991b1b;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  border-radius: 9999px;
+  padding: 1px 6px;
+  border: 1.5px solid #fff;
+  z-index: 3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Vaqtinchalik bosilgan joy belgisi (Temp Click Pin) */
+.temp-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.temp-pin .target-circle {
+  width: 24px;
+  height: 24px;
+  border: 3px dashed #38bdf8;
+  border-radius: 50%;
+  animation: spin 3s linear infinite;
+}
+.temp-pin .target-center {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+}
+
+@keyframes pulse-ring-anim {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Leaflet Popup dizaynini modernizatsiya qilish */
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  color: #f8fafc !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #94a3b8 !important;
+  padding: 8px 12px 0 0 !important;
+  font-size: 18px !important;
+  top: 6px !important;
+  right: 6px !important;
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #ffffff !important;
+}
+
+/* Maxsus Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
